@@ -36,6 +36,7 @@ std::string AND(std::string reg1,std::string reg2, std::string reg3);
 std::string OR(std::string reg1,std::string reg2, std::string reg3);
 std::string XOR(std::string reg1,std::string reg2, std::string reg3);
 std::string NOR(std::string reg1,std::string reg2, std::string reg3);
+std::string makecases(int numcases, int memcases, int forwardlevel);
 
 
 
