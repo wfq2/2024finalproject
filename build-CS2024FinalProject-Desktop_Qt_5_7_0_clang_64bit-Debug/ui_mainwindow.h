@@ -39,16 +39,17 @@ public:
     QFrame *frame;
     QTextBrowser *textBrowser;
     QWidget *widget;
-    QVBoxLayout *verticalLayout;
+    QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_2;
     QLabel *label_3;
     QSlider *horizontalSlider;
+    QVBoxLayout *verticalLayout;
     QLabel *label;
     QHBoxLayout *horizontalLayout;
-    QRadioButton *radioButton;
-    QRadioButton *radioButton_2;
-    QRadioButton *radioButton_3;
+    QRadioButton *lessButton;
+    QRadioButton *moreButton;
+    QRadioButton *mostButton;
     QCheckBox *checkBox;
     QPushButton *submitButton;
     QMenuBar *menuBar;
@@ -75,12 +76,12 @@ public:
         textBrowser->setGeometry(QRect(0, 0, 171, 241));
         widget = new QWidget(centralWidget);
         widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(190, 1, 211, 241));
-        verticalLayout = new QVBoxLayout(widget);
-        verticalLayout->setSpacing(6);
-        verticalLayout->setContentsMargins(11, 11, 11, 11);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        widget->setGeometry(QRect(190, 16, 205, 231));
+        verticalLayout_2 = new QVBoxLayout(widget);
+        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
@@ -95,7 +96,7 @@ public:
         horizontalLayout_2->addWidget(label_3);
 
 
-        verticalLayout->addLayout(horizontalLayout_2);
+        verticalLayout_2->addLayout(horizontalLayout_2);
 
         horizontalSlider = new QSlider(widget);
         horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
@@ -109,8 +110,11 @@ public:
         horizontalSlider->setTickPosition(QSlider::TicksBelow);
         horizontalSlider->setTickInterval(50);
 
-        verticalLayout->addWidget(horizontalSlider);
+        verticalLayout_2->addWidget(horizontalSlider);
 
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setSpacing(6);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         label = new QLabel(widget);
         label->setObjectName(QStringLiteral("label"));
 
@@ -119,34 +123,38 @@ public:
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        radioButton = new QRadioButton(widget);
-        radioButton->setObjectName(QStringLiteral("radioButton"));
+        lessButton = new QRadioButton(widget);
+        lessButton->setObjectName(QStringLiteral("lessButton"));
+        lessButton->setChecked(true);
 
-        horizontalLayout->addWidget(radioButton);
+        horizontalLayout->addWidget(lessButton);
 
-        radioButton_2 = new QRadioButton(widget);
-        radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
+        moreButton = new QRadioButton(widget);
+        moreButton->setObjectName(QStringLiteral("moreButton"));
 
-        horizontalLayout->addWidget(radioButton_2);
+        horizontalLayout->addWidget(moreButton);
 
-        radioButton_3 = new QRadioButton(widget);
-        radioButton_3->setObjectName(QStringLiteral("radioButton_3"));
+        mostButton = new QRadioButton(widget);
+        mostButton->setObjectName(QStringLiteral("mostButton"));
 
-        horizontalLayout->addWidget(radioButton_3);
+        horizontalLayout->addWidget(mostButton);
 
 
         verticalLayout->addLayout(horizontalLayout);
+
+
+        verticalLayout_2->addLayout(verticalLayout);
 
         checkBox = new QCheckBox(widget);
         checkBox->setObjectName(QStringLiteral("checkBox"));
         checkBox->setLayoutDirection(Qt::LeftToRight);
 
-        verticalLayout->addWidget(checkBox);
+        verticalLayout_2->addWidget(checkBox);
 
         submitButton = new QPushButton(widget);
         submitButton->setObjectName(QStringLiteral("submitButton"));
 
-        verticalLayout->addWidget(submitButton);
+        verticalLayout_2->addWidget(submitButton);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
@@ -178,9 +186,9 @@ public:
         label_2->setText(QApplication::translate("MainWindow", "Number of Test Cases:", 0));
         label_3->setText(QApplication::translate("MainWindow", "0", 0));
         label->setText(QApplication::translate("MainWindow", "Forwarding Level:", 0));
-        radioButton->setText(QApplication::translate("MainWindow", "Less", 0));
-        radioButton_2->setText(QApplication::translate("MainWindow", "More", 0));
-        radioButton_3->setText(QApplication::translate("MainWindow", "Most", 0));
+        lessButton->setText(QApplication::translate("MainWindow", "Less", 0));
+        moreButton->setText(QApplication::translate("MainWindow", "More", 0));
+        mostButton->setText(QApplication::translate("MainWindow", "Most", 0));
         checkBox->setText(QApplication::translate("MainWindow", "Include L/S Instructions", 0));
         submitButton->setText(QApplication::translate("MainWindow", "Create Test Cases", 0));
         menuTest_Case_Builder->setTitle(QApplication::translate("MainWindow", "Test Case Builder", 0));

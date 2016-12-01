@@ -12,9 +12,12 @@ TARGET = CS2024FinalProject
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
-        mainwindow.cpp
+SOURCES += main.cpp \
+        mainwindow.cpp \
+        makeTestCases.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += \
+    mainwindow.h \
+    makeTestCases.h
 
 FORMS    += mainwindow.ui

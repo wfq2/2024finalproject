@@ -49,9 +49,11 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../CS2024FinalProject/main.cpp \
-		../CS2024FinalProject/mainwindow.cpp moc_mainwindow.cpp
+		../CS2024FinalProject/mainwindow.cpp \
+		../CS2024FinalProject/makeTestCases.cpp moc_mainwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
+		makeTestCases.o \
 		moc_mainwindow.o
 DIST          = ../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.7/clang_64/mkspecs/qdevice.pri \
@@ -208,8 +210,10 @@ DIST          = ../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.7/clang_64/mkspecs/features/exceptions.prf \
 		../../Qt/5.7/clang_64/mkspecs/features/yacc.prf \
 		../../Qt/5.7/clang_64/mkspecs/features/lex.prf \
-		../CS2024FinalProject/CS2024FinalProject.pro ../CS2024FinalProject/mainwindow.h ../CS2024FinalProject/main.cpp \
-		../CS2024FinalProject/mainwindow.cpp
+		../CS2024FinalProject/CS2024FinalProject.pro ../CS2024FinalProject/mainwindow.h \
+		../CS2024FinalProject/makeTestCases.h ../CS2024FinalProject/main.cpp \
+		../CS2024FinalProject/mainwindow.cpp \
+		../CS2024FinalProject/makeTestCases.cpp
 QMAKE_TARGET  = CS2024FinalProject
 DESTDIR       = 
 TARGET        = CS2024FinalProject.app/Contents/MacOS/CS2024FinalProject
@@ -570,8 +574,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../CS2024FinalProject/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../CS2024FinalProject/main.cpp ../CS2024FinalProject/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../CS2024FinalProject/mainwindow.h ../CS2024FinalProject/makeTestCases.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../CS2024FinalProject/main.cpp ../CS2024FinalProject/mainwindow.cpp ../CS2024FinalProject/makeTestCases.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../CS2024FinalProject/mainwindow.ui $(DISTDIR)/
 
 
@@ -640,8 +644,13 @@ mainwindow.o: ../CS2024FinalProject/mainwindow.cpp ../CS2024FinalProject/mainwin
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		ui_mainwindow.h \
 		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
-		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h
+		../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QString \
+		../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qstring.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../CS2024FinalProject/mainwindow.cpp
+
+makeTestCases.o: ../CS2024FinalProject/makeTestCases.cpp ../CS2024FinalProject/makeTestCases.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o makeTestCases.o ../CS2024FinalProject/makeTestCases.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
