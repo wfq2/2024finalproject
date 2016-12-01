@@ -27,14 +27,15 @@ std::string SB(std::string reg1);
 std::string ANDI(std::string reg1,std::string reg2);
 std::string ORI(std::string reg1,std::string reg2);
 std::string XORI(std::string reg1,std::string reg2);
-std::string XORI(std::string reg1,std::string reg2);
 std::string ADDIU(std::string reg1,std::string reg2);
-std::string ADDU(std::string reg1,std::string reg2);
-std::string NOR(std::string reg1,std::string reg2);
 std::string SLTI(std::string reg1,std::string reg2);
 std::string SLTIU(std::string reg1,std::string reg2);
 std::string ADDU(std::string reg1,std::string reg2, std::string reg3);
 std::string SUBU(std::string reg1,std::string reg2, std::string reg3);
+std::string AND(std::string reg1,std::string reg2, std::string reg3);
+std::string OR(std::string reg1,std::string reg2, std::string reg3);
+std::string XOR(std::string reg1,std::string reg2, std::string reg3);
+std::string NOR(std::string reg1,std::string reg2, std::string reg3);
 
 
 
